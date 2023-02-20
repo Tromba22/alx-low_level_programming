@@ -3,44 +3,36 @@
  * Auth: Ali Trabelsi Karoui
  */
 #include <stdio.h>
+
 /**
- * main - print numbers from 00 to 99.
-(*
- * Return: 0 on success
+ * main - Prints all possible combinations of two two-digit numbers,
+ *        ranging from 0-99, separated by a comma followed by a space.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
-	int i = '0';
-	int j = '0';
-	int k = '0';
+	int num1, num2;
 
-	while (i <= '7')
+	for (num1 = 0; num1 <= 98; num1++)
 	{
-		while (j <= '8')
+		for (num2 = num1 + 1; num2 <= 99; num2++)
 		{
-			while (k <= '9')
-			{
-				if (i < j && j < k)
-				{
-					putchar(i);
-					putchar(j);
-					putchar(k);
-					if (!(i == '7' && j == '8' && k == '9'))
-					{
-						putchar(',');
-						putchar(' ');
-					}
+			putchar((num1 / 10) + '0');
+			putchar((num1 % 10) + '0');
+			putchar(' ');
+			putchar((num2 / 10) + '0');
+			putchar((num2 % 10) + '0');
 
-				}
-				k++;
-			}
-			k = '0';
-			j++;
+			if (num1 == 98 && num2 == 99)
+				continue;
+
+			putchar(',');
+			putchar(' ');
 		}
-		j = '0';
-		i++;
 	}
+
 	putchar('\n');
+
 	return (0);
 }
-
