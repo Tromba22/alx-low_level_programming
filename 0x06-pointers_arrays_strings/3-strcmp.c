@@ -1,25 +1,20 @@
-#include "main.h"
+#include "holberton.h"
 /**
- * _strncpy - Write a function that copies a string, with number of bytes
- * @dest: This is the output dest
- * @src: This is the input source
- * @n: This is the number of bytes to copy
+ * _strcmp - Write a function that compares two strings.
  *
- *Return: Copied string with the number of bytes
+ * @s1: This is the input string
+ * @s2: This is the input string
+ *
+ * Return: If the strings are equals return "0", if not return other number
  */
 
-char *_strncpy(char *dest, char *src, int n)
+int _strcmp(char *s1, char *s2)
 {
-	int index;
-
-	for (index = 0; index < n && src[index] != '\0' ; index++)
+	for (; (*s1 != '\0' && *s2 != '\0') && (*s1 == *s2); s1++, s2++)
+		;
+	if (*s1 == *s2)
 	{
-		dest[index] = src[index];
+		return (0);
 	}
-	for (; index  < n; index++)
-	{
-		dest[index] = '\0';
-	}
-	return (dest);
+	return (*s1 - *s2);
 }
-
